@@ -95,7 +95,8 @@ for yr in years:
             for idx, result in results.iterrows():
                 print(idx, "result:", result)
                 try:
-                    cur.execute("INSERT INTO RACE_RESULTS (DRIVER, TEAM, POSITION, CIRCUIT, YEAR) VALUES (?, ?, ?, ?, ?)", (result['BroadcastName'], result['TeamName'], result['Position'], circuit, yr))
+                    cur.execute("INSERT INTO RACE_RESULTS (DRIVER, TEAM, POSITION, CIRCUIT, YEAR) VALUES (?, ?, ?, ?, ?)", 
+                                (result['BroadcastName'], result['TeamName'], result['Position'], circuit, yr))
                     conn.commit()
                 except sqlite3.Error as e:
                     print(f"An error occurred: {e}")
