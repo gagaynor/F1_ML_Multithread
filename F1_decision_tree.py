@@ -22,6 +22,7 @@ y = data['POSITION']
 # Convert categorical variables into numerical values using one-hot encoding
 X = pd.get_dummies(X)
 
+# Change n_jobs to modify how many CPU's are being utilized
 model = tree.DecisionTreeClassifier(n_jobs=-1)
 
 # Fit the model to your data
