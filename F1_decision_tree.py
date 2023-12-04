@@ -12,6 +12,8 @@ import os
 
 from concurrent.futures import ThreadPoolExecutor
 
+import matplotlib.pyplot as plt
+
 def process_model(number_cpus, model_idx, model, X, y, upcoming_race_df):
     t1_start = perf_counter()
     model.fit(X, y)
@@ -123,6 +125,59 @@ def main():
     results_df.set_index('CPUs_used', inplace=True)
 
     print (results_df)
+
+    ## Uncomment this next section if you want to plot results
+
+    # results_df['Execution_time'] = pd.to_numeric(results_df['Execution_time'])
+
+    # # Group by 'CPUs_used' and sum up the 'Execution_time' for each CPU count
+    # sum_exec_time = results_df.groupby('CPUs_used')['Execution_time'].sum()
+
+    # # Plotting
+    # plt.figure(figsize=(8, 6))
+    # plt.bar(sum_exec_time.index, sum_exec_time.values, color='black')
+    # plt.xlabel('CPUs_used')
+    # plt.ylabel('Sum of Execution Times')
+    # plt.title('Sum of Execution Times vs CPUs_used')
+    # plt.xticks(sum_exec_time.index)
+    # plt.grid(axis='y')
+
+    # # Show plot
+    # plt.show()
+
+    # sum_exec_time_models = results_df.groupby('Model')['Execution_time'].sum()
+
+    # # Plotting
+    # plt.figure(figsize=(8, 6))
+    # plt.bar(sum_exec_time_models.index, sum_exec_time_models.values, color='red')
+    # plt.xlabel('Models')
+    # plt.ylabel('Sum of Execution Times')
+    # plt.title('Sum of Execution Times for Different Models')
+    # plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+    # plt.grid(axis='y')
+
+    # # Show plot
+    # plt.tight_layout()
+    # plt.show()
+
+    # # Group by 'Model' and 'CPUs_used' and sum up the 'Execution_time' for each combination
+    # sum_exec_time_models_cpus = results_df.groupby(['Model', 'CPUs_used'])['Execution_time'].sum()
+
+    # # Unstack the DataFrame to prepare for plotting
+    # sum_exec_time_models_cpus = sum_exec_time_models_cpus.unstack(level=0)
+
+    # # Plotting
+    # plt.figure(figsize=(10, 6))
+    # sum_exec_time_models_cpus.plot(kind='bar', stacked=False)
+    # plt.xlabel('CPUs Used')
+    # plt.ylabel('Sum of Execution Times')
+    # plt.title('Sum of Execution Times for Each Model Across CPU Usages')
+    # plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+    # plt.legend(title='Models', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # # Show plot
+    # plt.tight_layout()
+    # plt.show()
 
     # print(results_df.to_string(index=False))
 
