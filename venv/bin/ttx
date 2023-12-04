@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/gabrielg/Code/ML for Python/FinalProject/F1_ML_Multithread/venv/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from fontTools.ttx import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
