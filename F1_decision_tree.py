@@ -156,7 +156,9 @@ def main():
 
     results_df.set_index('CPUs_used', inplace=True)
 
-    print (results_df)
+    # print (results_df)
+
+
 
     ## Uncomment this next section if you want to plot results
 
@@ -226,6 +228,9 @@ def main():
     print()
 
     results_df.sort_values(by=['Model', 'CPUs_used'], inplace=True)
+
+    # Save to disk
+    results_df.to_csv('results.csv')
 
     print (results_df)
 
