@@ -1,0 +1,13 @@
+CPUs_used,Model,Execution_time,Prediction,Score
+1,KNeighbors,0.3016,4.0,0.13
+2,KNeighbors,0.2275,4.0,0.13
+3,KNeighbors,0.2944,4.0,0.13
+4,KNeighbors,0.2694,4.0,0.13
+1,Random_Forest,1.9709,15.0,0.1584
+2,Random_Forest,2.115,14.0,0.1628
+3,Random_Forest,2.0517,4.0,0.1572
+4,Random_Forest,2.034,4.0,0.1672
+1,SGD,1.6676,17.0,0.1453
+2,SGD,1.8132,16.0,0.1441
+3,SGD,1.6567,18.0,0.1388
+4,SGD,1.7554,16.0,0.1422
